@@ -1,3 +1,6 @@
+//pairing with Samantha Knoop
+
+
 const chai = require('chai');
 const assert = chai.assert;
 
@@ -34,5 +37,53 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+
+  it("should return false if the word is not present", function() {
+    const result = wordSearch([
+      ['H', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['E', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
+      ['L', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['I', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['O', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'HELLO')
+
+    assert.isFalse(result);
+  });
+
+  it("should return true if the word is present", function() {
+    const result = wordSearch([
+      ['H', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['E', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
+      ['L', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['L', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['O', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'HELLO')
+
+    assert.isTrue(result);
+  });
+
+  it("should return false if the matrix is empty", function() {
+    const result = wordSearch([
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+    ], 'HELLO')
+
+    assert.isFalse(result);
   });
 });
